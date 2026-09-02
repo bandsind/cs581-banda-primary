@@ -1,7 +1,7 @@
 # Sindi Banda — CS 581 Portfolio
 
 **Boise State University · CS 581 Nuclear Cybersecurity · Fall 2026**  
-AI Tool: <!-- Claude Code / Codex / Antigravity -->  
+AI Tool: <!-- Claude Code / Codex -->  
 Primary System: <!-- The system you chose in Week 1 -->
 
 ---
@@ -21,21 +21,21 @@ Be specific — name systems, frameworks, and techniques.
 
 | Workshop | System | Artifact | Theme |
 |---|---|---|---|
-| W1 | <!-- system --> | [Attack Surface Map](week-01/attack-surface-map.md) | Foundations |
-| W2 | <!-- system --> | [Threat Profile](week-02/threat-profile.md) | Adversary Analysis |
-| W3 | <!-- system --> | [Protocol Security Analysis](week-03/protocol-security-analysis.md) | Technical Core I |
-| W4 | <!-- system --> | [ICS Security Analysis](week-04/ics-security-analysis.md) | Technical Core II |
-| W5 | <!-- system --> | [Regulatory Compliance Map](week-05/regulatory-compliance-map.md) | Nuclear Context |
-| W6 | <!-- system --> | [Monitoring Strategy](week-06/monitoring-strategy.md) | Defense & Detection |
-| W7 | <!-- system --> | [Incident Response Plan](week-07/incident-response-plan.md) | Incident Response |
-| W8 | <!-- system --> | [Advanced Threat Analysis](week-08/advanced-threat-analysis.md) | Advanced & Emerging |
-| W9 | <!-- system --> | [Portfolio Synthesis Note](week-09/portfolio-synthesis-note.md) | Capstone |
+| W1 | <!-- system --> | [IT Layer](workshops/week-01/attack-surface-map-it.md) · [OT Layer](workshops/week-01/attack-surface-map-ot.md) · [Physical Layer](workshops/week-01/attack-surface-map-physical.md) · [Verification](workshops/week-01/attack-surface-verification.md) | Foundations |
+| W2 | <!-- system --> | [Threat Profile](workshops/week-02/threat-profile.md) | Adversary Analysis |
+| W3 | <!-- system --> | [Protocol Security Analysis](workshops/week-03/protocol-security-analysis.md) | Technical Core I |
+| W4 | <!-- system --> | [ICS Security Analysis](workshops/week-04/ics-security-analysis.md) | Technical Core II |
+| W5 | <!-- system --> | [Regulatory Compliance Map](workshops/week-05/regulatory-compliance-map.md) | Nuclear Context |
+| W6 | <!-- system --> | [Monitoring Strategy](workshops/week-06/monitoring-strategy.md) | Defense & Detection |
+| W7 | <!-- system --> | [Incident Response Plan](workshops/week-07/incident-response-plan.md) | Incident Response |
+| W8 | <!-- system --> | [Advanced Threat Analysis](workshops/week-08/advanced-threat-analysis.md) | Advanced & Emerging |
+| W9 | <!-- system --> | [Portfolio Synthesis Note](workshops/week-09/portfolio-synthesis-note.md) | Capstone |
 
 ---
 
 ## AI Tool Evaluation
 
-**Tool used:** <!-- Claude Code / Codex / Antigravity -->
+**Tool used:** <!-- Claude Code / Codex -->
 
 **What it did well:**
 <!-- Be specific. Which workshop produced the best AI-assisted output and why? -->
