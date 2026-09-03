@@ -1,24 +1,21 @@
 # System Selection — Week 1
 
-**Chosen system:** <!-- e.g., DCS — Digital Control System -->
-**Purdue Zone:** <!-- e.g., Level 2 — Supervisory -->
-**System type:** <!-- Safety-critical / Safety-related / Operational / Security / Support -->
+**Chosen system:** OT Security Information & Event Management
+
+**Purdue Zone:** Level 3 Site Operations
+
+**System type:** Monitoring/Security
 
 ---
 
 ## Rationale
 
-<!--
-Answer three things:
+I selected OT Security Information & Event Management because my background in data and databases gives me a useful starting point for understanding how the system works. 
 
-1. What do you already understand — from your background, your field, your prior coursework —
-   that makes this a good starting point? What existing mental model will transfer?
+I already understand data collection, data integrity, and the process of identifying irregular patterns in data. That gives me a mental model for understanding how a monitoring system can receive information from different sources and use that information to identify abnormal or suspicious activity. 
 
-2. What do you NOT yet understand about this system that the attack surface map will
-   force you to research? What is the knowledge gap you are choosing to close first?
+What I do not yet understand is how OT-SIEM gains visibility into physical plant activity, especially how information from lower-level devices such as sensors and actuators moves through controllers, monitoring systems, or historians before reaching OT-SIEM. This is the first knowledge gap I want the attack surface mapping exercise to help me close. 
 
-3. What does the plant architecture diagram tell you about this system's connections
-   and dependencies? What sits above it, below it, and adjacent to it?
+The plant architecture places OT-SIEM at Level 3 Site Operations. ICT-SIEM sits above it, with OT-SIEM sending information upward to ICT-SIEM. The diagram also shows direct inputs to OT-SIEM from RMS, PSI, and the PPC/Historian. Below OT-SIEM, the DCS connects to the PPC/Historian, creating an indirect path through which operational information can reach the monitoring system. 
 
-See example-student-work/week-01/system-selection.md in the course repo for reference.
--->
+These connections make OT-SIEM a useful starting point for understanding how data moves from plant operations into cybersecurity monitoring and how the security of that data path affects the reliability of detection.
