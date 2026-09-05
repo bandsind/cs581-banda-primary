@@ -1,8 +1,10 @@
 # Attack Surface Map — Physical & Cyber-Physical Layer
-## CS 581 Workshop 1 | [Your Name] | [Date]
+## CS 581 Workshop 1 | Sindi Banda | September 5, 2026
 
-**System:** <!-- Full name and abbreviation -->
+**System:** OT Security Information & Event Management (OT-SIEM)
 **Focus:** Physical access points, hardware interfaces, and cyber-physical intersections
+
+OT-SIEM does not issue actuation commands and has no direct connection to a valve, breaker, or pump. Its physical and cyber-physical attack surface is mediated rather than direct: a compromise changes what an operator sees or how fast a response happens, and the physical consequence follows from that changed information or delay rather than from a command OT-SIEM itself sends.
 
 ---
 
@@ -10,20 +12,14 @@
 
 | Interface / Component | Threat Vector | Physical Consequence | Confidence | Provenance |
 |---|---|---|---|---|
-| <!-- component --> | <!-- how it can be attacked --> | <!-- what happens in the physical world --> | <!-- documented / inferred / theoretical --> | <!-- source --> |
+| Physical console and local I/O ports on the OT-SIEM server appliance (USB, serial console, KVM) | These ports bypass every network-layer control described in the IT and OT layer maps. An individual with unescorted physical access to the equipment room can attach a USB device to exfiltrate correlation rules and asset inventory, install a local implant, or reconfigure alert thresholds through the console, with no network trace | A local implant that suppresses or delays specific alert categories removes the plant's ability to detect an in-progress physical intervention elsewhere while it is happening, converting a detectable event into an undetected one | Documented | NRC RG 5.71 Section C.3.3.2.5 (Physical and Environmental Protection); NIST SP 800-82r3 Section 6.2.7 (Media Protection) |
+| Passive sensor and tap installation points physically located inside Level 1 safety system cabinets (RPS, EDGC) | Installing, servicing, or tampering with a tap requires opening a physical cabinet that also contains safety-related wiring and terminal blocks. RG 5.71's preference for full digital isolation exists precisely because any added connection point, even a passive one, is a new physical intervention into a cabinet that would not otherwise be opened | A wiring fault, dropped tool, or disturbed terminal introduced during tap installation or maintenance inside an RPS or EDGC cabinet could cause a spurious trip signal, a lost sensor input, or a failed emergency diesel start signal, depending on which conductor is disturbed | Inferred | NRC RG 5.71 Section C.3.2.1 (digital isolation preference); NRC RG 5.71 Section C.3.1.4 (physical inspection tracing every communication pathway). No source documents an actual tap-installation incident inside an RPS cabinet; the wiring-disturbance consequence is inferred from general safety-cabinet maintenance risk |
+| Alert and alarm output interface to control room operator workstations and annunciator displays | A compromised or manipulated OT-SIEM can suppress a true alert, flood operators with false alerts, or alter alert severity. This output is exactly what a human operator uses to decide whether to take a manual protective action | Suppressing a genuine alert lets an ongoing physical intervention continue undetected. Flooding operators with false alerts increases the chance a real signal is missed, or that an operator takes an unnecessary manual action in response to a false report | Inferred | NRC RG 5.71 Glossary (adverse impact definition: reduction in ability to detect, delay, assess, or respond to malevolent activity); NIST SP 800-82r3 Section 6.3 (Detect function, DE.AE and DE.CM). Neither source states this specific false-alert consequence directly |
+| Physical security system (PACS badge/door alarm, CCTV) data ingestion into OT-SIEM for cyber-physical correlation | RG 5.71 requires a licensee to incorporate its cyber security program into its physical protection program and to analyze physical/cyber interdependencies directly. A compromise of the ingestion path lets an attacker suppress a correlated cyber-anomaly-plus-forced-door alert precisely when a physical intrusion is underway | An attacker who defeats a physical barrier while simultaneously manipulating the correlation feed could delay the security response team's dispatch, extending the window available to reach a target system | Inferred | NRC RG 5.71 Section C.3.4 (Incorporating the Cyber Security Program into the Physical Protection Program). RG 5.71 mandates program-level integration; it does not confirm this specific technical implementation |
+| Environmental and infrastructure support dependencies for the OT-SIEM server (electrical power, HVAC, fire suppression) | RG 5.71's CDA review and validation process requires examining interdependencies with infrastructure support systems, emphasizing potential compromises of electrical power, environmental controls, and fire suppression equipment. A compromised building automation system controlling any of these can take the OT-SIEM offline without touching the SIEM itself | Loss of power or cooling to the OT-SIEM server room removes the monitoring layer entirely, producing a plant-wide blind spot in security detection for the duration of the outage | Documented | NRC RG 5.71 Section C.3.1.4 (Review and Validation, infrastructure interdependencies); NIST SP 800-82r3 Section 2.3.5 (Building Automation Systems) |
 
 ---
 
 ## What This Map Cannot Tell You
 
-<!-- Required. What does this map fundamentally not know?
-What would a real facility assessment require that public documents cannot provide?
-
-Think about:
-- Vendor-specific vulnerability history you don't have
-- Whether specific security configurations are enabled or disabled
-- Current patch posture
-- Actual network topology vs. the Purdue model ideal
-- Insider threat program implementation details
-
-The honest answer to "what don't we know" is often more valuable than the map itself. -->
+This map cannot confirm whether a given facility's OT-SIEM server sits in the same physically protected area as the safety cabinets it monitors, or in a separate, less-guarded equipment room, since that placement is a site-specific design choice not described in public guidance. It cannot verify whether local console ports are physically disabled, locked, or logged, a control decision documented in the plant's cyber security plan rather than in RG 5.71 or NIST SP 800-82r3 themselves. It cannot determine whether a given deployment actually performs PACS or CCTV correlation as described above, or treats OT-SIEM as a purely cyber-only tool with physical security handled by a separate platform, since both architectures are consistent with the public regulatory language. It also cannot assess the real alert tuning in place, meaning whether operators currently see a manageable signal or an unmanageable flood, because that depends on site-specific configuration and history that only direct facility observation or the licensee's own operating experience records would show. Confirming any of this would require the CDA walkdown and interdependency records described in RG 5.71 Section C.3.1.4, not a public-source map.
