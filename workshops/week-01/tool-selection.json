@@ -1,63 +1,23 @@
 {
-  "tool": "",
-  "provider": "",
-  "evaluation_date": "",
+  "tool": "Claude Code",
+  "provider": "Anthropic",
+  "evaluation_date": "2026-09-06",
   "models": {
-    "available": [
-      {
-        "model_id": "",
-        "description": "One-line description of this model's intended use case per the provider's documentation.",
-        "tier": "standard | reasoning | vision | fast",
-        "tested": null,
-        "notes": "What did you actually observe when you used it? Compare it against at least one other model in the same family on the same prompt."
-      }
-    ],
-    "reasoning_chain_test": {
-      "model_used": "",
-      "prompt": "Paste the prompt you used to test extended or chain-of-thought reasoning.",
-      "observation": "What did the visible reasoning chain reveal? Did it surface something you would not have caught otherwise, or did it confabulate a plausible-sounding chain? Be specific.",
-      "nuclear_relevance": "How does the ability to inspect reasoning matter for a nuclear cybersecurity task where the model's source and confidence are not always visible in the output?"
-    },
-    "vision_test": {
-      "model_used": "",
-      "image_used": "Describe or name the image you uploaded (e.g., Plant Architecture Diagram screenshot, an ICS network diagram from a public CISA advisory).",
-      "observation": "What did the model correctly identify? What did it miss or hallucinate? Did it add connections or components that were not in the image?",
-      "nuclear_relevance": "Where in this course would vision capability be useful — and where would you not trust it without verification?"
-    },
-    "model_selection_guide": "Based on your evaluation, when would you use each model variant? Write one sentence per model. This is your personal quick-reference for the rest of the semester."
+    "available": "Claude Opus 5: For difficult regulatory reasoning, vague cybersecurity questions, and tasks where I need deeper source comparison and assumption checking.\n\nClaude Sonnet 5: For CS 581 coursework, drafting, coding, and routine technical analysis where I want a balance between speed and reasoning quality.\n\nClaude Haiku 4.5: For formatting Markdown, extracting information, spelling and grammar checks, git commands, and simple consistency checks.",
+    "model_selection_guide": "Claude Opus 5: I would use Opus for difficult regulatory questions, deeper reasoning, and work where I need to compare sources carefully.\n\nClaude Sonnet 5: I would use Sonnet for most of my normal coursework, coding, research, and technical writing.\n\nClaude Haiku 4.5: I would use Haiku for quick tasks such as formatting, extraction, simple file changes, and other mechanical work."
   },
-  "capabilities": {
-    "thinking_and_reasoning": {
-      "supported": null,
-      "notes": "Does the tool expose its reasoning chain or intermediate steps? Test it on a prompt that requires multi-step inference. Describe what you observed and what it tells you about how to prompt this tool effectively."
-    },
-    "context_length": {
-      "tokens": null,
-      "notes": "Describe your test. Load one or more of the course primary sources (RG 5.71, NEI 08-09, Anderson chapter). Ask a question that requires finding something specific in the text. Did it succeed? This matters because the assignments require synthesizing long documents."
-    },
-    "function_calling": {
-      "supported": null,
-      "notes": "Does the tool support web search, file system access, or custom function definitions? List what you tested and what worked. If web search is available, describe how it cites sources."
-    },
-    "structured_output": {
-      "supported": null,
-      "notes": "Can the tool produce well-formed JSON, markdown tables, and structured lists reliably? Describe what you tested. Note how many prompt iterations it took to get the format right — this is useful calibration for the rest of the semester."
-    },
-    "vision_multimodal": {
-      "supported": null,
-      "notes": "Can you upload images or diagrams? Test with the Plant Architecture Diagram. Ask it to describe connections between systems. Note any errors or hallucinations."
-    },
-    "mcp_integration": {
-      "supported": null,
-      "notes": "Does the tool support MCP servers or equivalent external integrations? List what is available. Note anything you plan to use later in the semester."
-    },
-    "provenance_trust": {
-      "provider": "",
-      "us_based": null,
-      "data_handling": "Summarize the provider's data handling policy in one or two sentences. Link to the relevant policy document. Explain why this tool is or is not appropriate for nuclear cybersecurity coursework involving publicly available primary sources.",
-      "notes": "This is a graded criterion. US-based providers with documented data handling policies are required. Explain your reasoning, not just your conclusion."
-    }
+  "reasoning_chain_test": {
+    "model_used": "Claude Opus 5",
+    "prompt": "See session log entry: Reasoning Chain Test",
+    "observation": "Claude did not force the answer into RG 5.71 or 10 CFR 73.54 just because the prompt named those documents. It identified 10 CFR 73.77 as the actual reporting rule and correctly focused on the difference between the one-hour and four-hour reporting categories and the fact that the clock starts after discovery. The reasoning also helped expose uncertainty around what counts as an adverse impact and when discovery actually happens. One issue I found was that it discussed the older 2010 version of RG 5.71, while the current revision is Rev. 1 from 2023, so the source version still needed manual verification.",
+    "nuclear_relevance": "Regulatory work requires the model to identify the correct rule, use the current revision, and separate what the regulation actually says from what it is inferring. A confident answer based on an old document or the wrong reporting provision could lead to a wrong compliance decision, so I would still verify important regulatory conclusions against the NRC source."
   },
-  "justification": "Why is this the right tool for this course? Give three specific reasons based on your evaluation above. Each reason should reference something you tested, not something from a marketing page.",
-  "limitations": "What did you find that this tool does poorly or gets wrong? Describe at least two concrete limitations you discovered during your W1 session. Cite the specific moment where each limitation appeared and how you caught or worked around it."
+  "vision_test": {
+    "model_used": "Claude Opus 5",
+    "image_used": "CS 581 Plant Architecture Diagram screenshot",
+    "observation": "Claude correctly identified the 11 systems, the Purdue levels, the separation boundary, and the main OT-SIEM connections. It correctly identified RMS to OT-SIEM, PSI to OT-SIEM, PPC to OT-SIEM, and OT-SIEM to ICT-SIEM. It also correctly noticed the one-way export and the RPS data diode. The main error was tracing the Access Interlocks line as PPC to DCS when the diagram shows it coming from PSI toward DCS. It also inferred some protocols that were not written on the image, so those should be treated as inference rather than fact.",
+    "nuclear_relevance": "I would trust the vision model to help identify system names, Purdue levels, labels, and obvious connections, but I would manually verify connection paths, arrow direction, crossing lines, and any inferred protocol. A wrong connection in a nuclear plant architecture could change the attack path and lead to a wrong security conclusion."
+  },
+  "justification": "Claude Code is useful for this course for three reasons. First, the reasoning test showed that Opus can challenge the wording of a question and identify a more relevant regulation instead of only following the documents named in the prompt. Second, the vision test showed that it can read a complex plant architecture diagram and identify most systems, levels, and OT-SIEM connections. Third, Claude Code works directly with the Markdown and JSON files used in this course, which makes it useful for drafting, reviewing, formatting, and updating workshop files while keeping the work in the repository.",
+  "limitations": "The first limitation is source reliability. During the reasoning test, Claude referred to the older 2010 version of RG 5.71 even though the current revision is Rev. 1 from 2023, so regulatory sources still need manual verification. The second limitation is diagram tracing. During the vision test, Claude incorrectly associated the Access Interlocks connection with PPC to DCS instead of PSI to DCS. It also inferred protocols that were not directly shown in the image. These tests showed that Claude can support the analysis, but I should not treat its regulatory claims or architecture connections as verified facts without checking the original source."
 }
