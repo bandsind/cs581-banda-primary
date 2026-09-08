@@ -2,7 +2,9 @@
 ## CS 581 Workshop 1 | Sindi Banda | September 5, 2026
 
 **System:** OT Security Information & Event Management (OT-SIEM)
+
 **Purdue Zone:** Level 4 — Corporate / Enterprise Network
+
 **Regulatory classification:** Critical Digital Asset (CDA) under 10 CFR 73.54. OT-SIEM performs a security monitoring function that protects SSEP-supporting systems from cyber attack, which meets the RG 5.71 CDA identification criterion covering assets that protect a critical system from cyber attack up to and including the design basis threat.
 
 ---

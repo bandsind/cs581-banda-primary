@@ -1,27 +1,44 @@
-# Attack Surface Verification — [System Name]
-## CS 581 Workshop 1 | [Your Name] | [Date]
+# Attack Surface Verification — OT Security Information & Event Mgmt (OT-SIEM)
 
-**System:** <!-- Full name and abbreviation -->
-**Sources used for verification:** <!-- List the two primary sources you checked against -->
+**Student:** Sindi Banda
+**System:** OT Security Information & Event Mgmt (OT-SIEM) · Level 3 · Security monitoring
+**Date:** September 7, 2026
 
----
+## Sources Used
 
-## Corrections Table
+- **Source A:** NIST SP 800-82r3, *Guide to Operational Technology (OT) Security*, Appendix E, "OT Security Capabilities and Tools," Section E.2, "Network Monitoring – Security Information and Event Management (SIEM)" (pp. 208-210), National Institute of Standards and Technology, September 2023.
+- **Source B:** NRC Regulatory Guide 5.71, *Cyber Security Programs for Nuclear Facilities*, Section C.3.2.1, "Security Defensive Architecture" (p. 18), with supporting reference to Sections C.3.1.3, C.3.1.4, C.3.3.2.5, C.3.4, and the Glossary. U.S. Nuclear Regulatory Commission, January 2010 (ADAMS ML090340159).
+
+**Note on the Source B placeholder.** The assignment template proposed "NRC RG 5.71 Appendix D." RG 5.71 has no Appendix D. Its appendices are A (Generic Cyber Security Plan Template), B (Technical Controls), and C (Operational and Management Controls). Source B was reassigned to Section C.3.2.1, which is the section that actually governs the defensive architecture claims made throughout the three-layer map.
+
+## Corrections
 
 | Layer | Original Claim | Error Type | Corrected Entry | Source |
 |---|---|---|---|---|
-| <!-- IT / OT / Physical --> | <!-- what the AI initially said --> | <!-- factual error / overconfidence / missing nuance --> | <!-- what it should say --> | <!-- specific source + section --> |
-
----
+| IT, OT, Physical | Purdue level numbers were attributed to RG 5.71, for example "RG 5.71 Section C.3.2.1 (one-way data flow requirement, Level 4 to Level 3 to Level 2)" used to support a claim about a Purdue Level 3 to Level 4 corporate boundary | Wrong source mapping. Two incompatible numbering schemes were treated as one | RG 5.71 uses its own five-level defensive architecture in which **Level 4 is the most secure and innermost**, and corporate sits at a lower level. Purdue numbering is inverted relative to this: Purdue Level 4 is corporate. Every claim in the maps should read "OT-SIEM sits at a higher RG 5.71 defensive level than the corporate network," not "OT-SIEM at Level 3 forwards up to Level 4." The RG 5.71 one-way flow runs Level 4 to Level 3 to Level 2, meaning outward from the most protected zone | Source B, C.3.2.1: CDAs associated with safety, important-to-safety, and security functions are allocated to Level 4 and protected from all lower levels; one-way data flow is allowed from Level 4 to Level 3 and Level 3 to Level 2 |
+| IT, OT | Threat intelligence feed and ITSM ticketing rows stated that an outbound call from OT-SIEM toward the corporate network "violates the prohibition on a lower security level initiating communication toward a higher one" | Reasoning inverted | RG 5.71 prohibits initiation from **lower to higher**. OT-SIEM sits higher than corporate in that scheme, so an OT-SIEM-initiated outbound request is not itself the prohibited direction. The actual violation is the **return leg**: a pull requires response data to travel inward from a lower level to a higher one, which is exactly what the one-way boundary device exists to block. The finding survives; the stated mechanism was backwards | Source B, C.3.2.1 |
+| IT, OT, Physical | "NRC RG 5.71 Revision 1 (ML22258A204), data diode limitations and portable media pathway discussion" cited three times | Unverifiable citation. Neither the revision nor the accession number was confirmed against a retrieved document | Replace with RG 5.71 (2010) Section C.3.1.3, which states that indirect connections to CDAs include air-gapped systems, CDAs behind a one-way security boundary device, and sneaker nets in which data or software is carried manually on portable storage media. This supports the portable-media-bypass claim from a citation that has been read directly | Source B, C.3.1.3 |
+| OT | DNP3 parser row rated **documented**, using CISA ICSA-13-291-01B to support the claim that an OT-SIEM sensor's own protocol parser is a vulnerable third-party stack | Overclaim | The advisory documents improper input validation in master and slave station DNP3 implementations and notes that some were third-party components inside other software packages. It does not name passive monitoring sensors. Applying it to an OT-SIEM parser is a reasonable inference, not a documented finding. Downgrade to **inferred** and state the inference explicitly | CISA ICSA-13-291-01B scope; Source A, E.2 |
+| OT | "Compromise of the central OT-SIEM node is functionally equivalent to compromising the highest-value CDA it monitors," rated **documented** on the RG 5.71 Glossary | Overclaim | The Glossary defines a security monitoring network as a physically separate network provided with an equal or greater security level than the levels it supports. That is a protection **requirement**, not a statement of consequence equivalence. Restate as: RG 5.71 requires OT-SIEM's supporting network to be protected at or above the level of what it monitors, which is why its compromise is treated as a high-consequence event | Source B, Glossary, "security monitoring network" |
+| OT | SPAN mirror port row attributing the switch-CPU-overload mechanism to NIST SP 800-82r3 Appendix E.2.2 and Section 5.2.3 | Citation does not support the specific claim | E.2.2 covers passive scanning as a capability and 5.2.3 covers network security broadly. Neither was confirmed to state that SPAN misconfiguration overloads legacy control switch CPUs. Keep the tap-as-monitoring-interface claim as documented and mark the CPU-overload mechanism **inferred**, or drop it | Source A, E.2.2 |
+| OT, Physical | "NEI 08-09 Rev 6 Appendix E Section 6 (Security CDAs air-gapped or behind a unidirectional deterministic boundary device)" | Citation outside both chosen sources and not verified | RG 5.71 provides the same substance and was read directly: C.3.2.1 states that CDAs and boundary protection systems are configured per Section 5 of Appendix B and Sections 6 and 7 of Appendix C, and C.3.1.3 covers air-gapped CDAs and CDAs behind a one-way boundary device. Re-cite to RG 5.71 until NEI 08-09 Rev 6 is read directly | Source B, C.3.2.1 and C.3.1.3 |
+| IT | "NIST SP 800-82r3 defense-in-depth list" as provenance for separate OT and corporate credentials | Imprecise provenance. No section number given, which fails the assignment's provenance standard | Cite NIST SP 800-82r3, Executive Summary, defense-in-depth bullet list (p. 4), which names using separate authentication mechanisms and credentials for users of the OT network and the corporate network, and states that OT network accounts do not use corporate network user accounts | Source A |
+| OT, Physical | Confidence rated on a High / Medium / Low scale in the Layer 2 and Layer 3 tables | Wrong scale | Convert to the course scale: documented / inferred / theoretical. The IT layer table was already converted; Layers 2 and 3 still carry the older scale in the workshop drafts | curriculum.md standing principle on confidence and provenance markers |
 
 ## Confidence Adjustments
 
-<!-- Which rows changed confidence level after verification, and why?
-Name the row and the specific source that changed your assessment. -->
+**Raised to documented.** The regulatory classification of OT-SIEM as a CDA was previously asserted without a pinned citation. RG 5.71 Section C.3.1.3 states that CDAs include digital assets that "protect any of the above from cyber attack up to and including the DBT," which is criterion 5 in its list. OT-SIEM meets that criterion directly, so the classification line at the top of each map is now documented rather than assumed.
 
----
+**Raised to documented.** The environmental and infrastructure dependency row in the Physical layer was rated documented on a single citation. Source B supports it twice: C.3.1.4 requires examining interdependencies with infrastructure support systems, emphasizing potential compromises of electrical power, environmental controls, and fire suppression equipment, and C.3.3.2.5 requires protecting CDAs and their communication pathways from environmental conditions that could cause failure of infrastructure support systems. With NIST Section 2.3.5 on building automation systems, this row now meets the two-source bar.
 
-## What Verification Cannot Resolve
+**Lowered to inferred.** The DNP3 parser row in Layer 2 was the strongest-rated row in that table and does not survive verification at that level. CISA ICSA-13-291-01B is a real advisory that says what the map claims it says, but its scope is master and slave station software, not monitoring sensors. The bridge from that scope to an OT-SIEM sensor's parser is my inference and should be labeled as one.
 
-<!-- Some questions cannot be answered from public sources alone.
-List the claims in your map that remain unverifiable without facility-specific access. -->
+**Lowered to inferred.** The three rows citing RG 5.71 Revision 1 (ML22258A204) drop from documented to inferred until that revision is retrieved and read. The underlying claim about portable media bypassing network boundaries is independently supported by C.3.1.3 of the 2010 guide, so the rows survive, but at the confidence the verified citation supports rather than the confidence the unverified one implied.
+
+**Unchanged, and confirmed appropriate.** The vendor cloud analytics egress row in the IT layer remains theoretical. Neither Source A nor Source B addresses cloud-connected OT monitoring platforms at licensed facilities, which is the correct basis for the lowest confidence tier rather than an oversight.
+
+**Verified without change.** RG 5.71 Sections C.3.3.2.5 (Physical and Environmental Protection), C.3.1.4 (Review and Validation), and C.3.4 (Incorporating the Cyber Security Program into the Physical Protection Program) all exist with the titles and content cited, as do the Glossary definitions of "adverse impact" and "security monitoring network." On the NIST side, Sections 6.2.7, 6.2.10, 6.2.11, 6.2.12, 6.3, 2.3.5, and 5.2.3, and Appendix E subsections E.1.2, E.2.1 through E.2.5, all carry the section numbers and titles cited. Those rows needed no adjustment.
+
+## What This Verification Cannot Resolve
+
+The NIST section numbers and titles were confirmed from the published table of contents, but the body text of Appendix E on pages 207 through 212 was not retrieved, so what E.2.2 and E.2.3 actually say about passive versus active scanning risk in an OT environment remains partly unconfirmed and several Layer 2 rows rest on that unread text. RG 5.71 Appendices B and C were likewise not retrieved, so which specific boundary-device and monitoring controls a licensee must apply to an OT-SIEM collector, as opposed to the architectural rule in C.3.2.1, is still open. Neither source states where a licensee actually places OT-SIEM sensors relative to Level 1 safety cabinets, whether the log forwarder to the corporate SOC is truly unidirectional in a specific deployment, or whether the platform's active scanning feature is enabled or disabled, and all three would require the site's approved cyber security plan and the CDA walkdown records described in C.3.1.4. The vendor product identity, its patch level, and its sensor-to-manager protocol are outside both sources entirely and would need NDA architecture documentation. Verification against public regulatory guidance can confirm that a claim is consistent with the rule, which is what this pass did, but it cannot confirm that any facility's OT-SIEM is built the way the rule describes.
