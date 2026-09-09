@@ -499,7 +499,19 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 12: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
+## Entry 12: Sequencing Plan (Baseline Retained)
+**Timestamp:** 9/3/2026, 5:55:00 PM
+
+### Prompt
+```
+Use this:
+
+> Keep my original system sequence as the baseline: W2 PPC + PSI, W3 DCS + EDGC, W4 RPS, W5 RPS + SFPCM, W6 TCS, W7 RMS, W8 SMR I&C, and W9 ICT-SIEM. Review it against the current `curriculum.md` and workshop themes, but do not replace my selections unless there is a clear requirement issue. Where a choice is weaker, keep it and add a short suggestion or note explaining what I should verify or reconsider.
+```
+
+---
+
+## Entry 13: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
 **Timestamp:** 9/5/2026, 12:35:29 AM
 
 ### Prompt
@@ -534,7 +546,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 13: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
+## Entry 14: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
 **Timestamp:** 9/5/2026, 12:58:23 AM
 
 ### Prompt
@@ -569,7 +581,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 14: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
+## Entry 15: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
 **Timestamp:** 9/5/2026, 12:58:27 AM
 
 ### Prompt
@@ -604,7 +616,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 15: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
+## Entry 16: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
 **Timestamp:** 9/5/2026, 12:58:34 AM
 
 ### Prompt
@@ -639,7 +651,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 16: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
+## Entry 17: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
 **Timestamp:** 9/5/2026, 1:16:14 AM
 
 ### Prompt
@@ -674,7 +686,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 17: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
+## Entry 18: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
 **Timestamp:** 9/5/2026, 1:16:29 AM
 
 ### Prompt
@@ -709,7 +721,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 18: Attack Surface Verification
+## Entry 19: Attack Surface Verification
 **Timestamp:** 9/5/2026, 1:16:31 AM
 
 ### Prompt
@@ -755,7 +767,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 19: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
+## Entry 20: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
 **Timestamp:** 9/5/2026, 1:20:05 AM
 
 ### Prompt
@@ -790,7 +802,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 20: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
+## Entry 21: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
 **Timestamp:** 9/5/2026, 1:20:22 AM
 
 ### Prompt
@@ -825,7 +837,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 21: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
+## Entry 22: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
 **Timestamp:** 9/5/2026, 1:20:52 AM
 
 ### Prompt
@@ -860,7 +872,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 22: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
+## Entry 23: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
 **Timestamp:** 9/5/2026, 1:22:19 AM
 
 ### Prompt
@@ -895,7 +907,19 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 23: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
+## Entry 24: Attack Surface Map (File Creation, All Three Layers)
+**Timestamp:** 9/5/2026, 1:44:00 AM
+
+### Prompt
+```
+[Pasted the three assignment templates: Attack Surface Map - IT Layer (Level 4 / Corporate), Attack Surface Map - OT Layer (Levels 1-3 / Plant), and Attack Surface Map - Physical & Cyber-Physical Layer. Each template contained a header block for System, Purdue Zone, and Regulatory classification; a table with columns for Component, Role, Threat Vectors, Notable Gaps, and Confidence & Provenance (Physical layer used Interface / Component, Threat Vector, Physical Consequence, Confidence, Provenance); and a closing Summary or "What This Map Cannot Tell You" section.]
+
+create the .md file for each
+```
+
+---
+
+## Entry 25: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
 **Timestamp:** 9/7/2026, 10:21:14 PM
 
 ### Prompt
@@ -930,7 +954,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 24: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
+## Entry 26: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
 **Timestamp:** 9/7/2026, 10:25:08 PM
 
 ### Prompt
@@ -965,7 +989,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 25: Attack Surface Verification
+## Entry 27: Attack Surface Verification
 **Timestamp:** 9/7/2026, 10:26:29 PM
 
 ### Prompt
@@ -1011,7 +1035,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 26: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
+## Entry 28: Attack Surface Map (Layer 1 — IT (Level 4 / Corporate))
 **Timestamp:** 9/7/2026, 10:26:35 PM
 
 ### Prompt
@@ -1046,7 +1070,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 27: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
+## Entry 29: Attack Surface Map (Layer 2 — OT (Levels 1–3 / Plant))
 **Timestamp:** 9/7/2026, 10:33:47 PM
 
 ### Prompt
@@ -1081,7 +1105,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 28: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
+## Entry 30: Attack Surface Map (Layer 3 — Physical & Cyber-Physical)
 **Timestamp:** 9/7/2026, 10:34:48 PM
 
 ### Prompt
@@ -1116,7 +1140,7 @@ Writing standard: direct and concrete, no em dashes, no filler phrases.
 
 ---
 
-## Entry 29: Reasoning Chain Test
+## Entry 31: Reasoning Chain Test
 **Timestamp:** 9/7/2026, 10:51:29 PM
 
 ### Prompt
@@ -1142,7 +1166,7 @@ I am evaluating whether you surface definitional gaps and regulatory ambiguities
 
 ---
 
-## Entry 30: Vision Model Test
+## Entry 32: Vision Model Test
 **Timestamp:** 9/7/2026, 10:54:13 PM
 
 ### Prompt
@@ -1165,6 +1189,38 @@ Then self-assess:
 - What did you miss?
 
 Document this in your session log as your vision model test result.
+```
+
+---
+
+## Entry 33: Role Analysis Synthesis Review
+**Timestamp:** 9/8/2026, 6:23:00 PM
+
+### Prompt
+```
+Review my `role-analyses/week-01/synthesis.md` for CS 581 Week 1. Keep my existing ideas, and role choices, but format the file cleanly in Markdown and check whether each section actually answers the assignment prompts for Role A, Role B, Divergence Analysis, and Synthesis. Verify any claims tied to Anderson Chapters 1 and 2, RG 5.71, NEI 08-09, and my OT-SIEM attack surface, and clearly mark anything that is unsupported, too broad, or needs a source instead of silently replacing it. Make only necessary edits, do not use em dashes, and at the end give me a short list of what you changed and why.
+```
+
+---
+
+## Entry 34: Week 1 Pre-Submission Review
+**Timestamp:** 9/8/2026, 8:03:00 PM
+
+### Prompt
+```
+Review every attached CS 581 Week 1 file before my final submission. Check each file against the current `curriculum.md`, W1 Workflow Guide, Plant Architecture Diagram, RG 5.71 Rev. 1, NIST SP 800-82 Rev. 3, and any other source already cited in my work, and verify that every factual claim, connection, Purdue level, workshop choice, provenance label, and regulatory reference is supported. Do not rewrite my work unless something is clearly wrong, unsupported, inconsistent, incomplete, or does not answer the assignment requirement; instead, avoid em dashes, and show the exact file, section, problem, and recommended correction. Finish with a final submission checklist showing each required Week 1 file as PASS, NEEDS CHANGE, or MISSING, and clearly separate confirmed errors from optional suggestions.
+
+[Attached: session-log.md, attack-surface-map-it.md, attack-surface-map-ot.md, attack-surface-map-physical.md, attack-surface-verification.md, sequencing-plan.md, system-selection.md, tool-selection.json]
+```
+
+---
+
+## Entry 35: Week 1 Correction Pass
+**Timestamp:** 9/8/2026, 8:40:00 PM
+
+### Prompt
+```
+Apply the suggested corrections directly to the attached Week 1 files. Keep my original ideas, structure, system choices, and tone unless a change is required to fix an error, unsupported claim, inconsistency, or missing assignment requirement. Preserve documented, inferred, and theoretical distinctions, and do not introduce new claims unless they are supported by the course materials or sources already used. Writing standard: direct and concrete, no em dashes, no filler phrases.
 ```
 
 ---
@@ -1195,11 +1251,23 @@ The AI sometimes treated general OT-SIEM features as if they were confirmed part
 **Hardest row to verify:**  
 The hardest row to verify was the passive sensor or tap placement inside Level 1 safety-system cabinets. NIST and NRC guidance support passive monitoring and digital isolation concepts, but I could not verify from public sources that an actual licensed facility places OT-SIEM sensors inside RPS or EDGC cabinets. I therefore treated that row as inferred rather than documented and noted that site-specific architecture and CDA walkdown records would be needed to confirm it.
 
+**What the correction pass changed:**  
+Two problems only showed up when I checked the maps against the plant architecture and against the current revision of RG 5.71. First, the maps described generic SIEM interfaces and left out the connections the CS 581 diagram actually shows. I added rows for the RMS, PSI, and PPC feeds, which are now the best-sourced rows in the OT map, and marked every generic row with an asterisk so a reader can tell which interfaces are confirmed for this plant and which are not. The PPC row also carries a finding I had missed: the diagram shows no direct DCS to OT-SIEM edge, so all of OT-SIEM's process visibility arrives through one system. Second, several claims were written from RG 5.71 Revision 0 language that Revision 1 softened. Revision 1 does not prohibit lower-to-higher initiation, it requires deny-all with permit-by-exception and a documented justification. It does not call digital isolation the most secure or preferred option, it calls it a mechanism for meeting 73.54 requirements. Section C.3.3.2.5 is titled Physical Protection in Revision 1 and no longer covers environmental conditions, so that half of the claim moved to C.3.1.4.
+
 ### Tool Evaluation — Reasoning Chain
-Claude did not force the answer into RG 5.71 or 10 CFR 73.54 just because the prompt named those documents. It identified 10 CFR 73.77 as the actual reporting rule and correctly focused on the difference between the one-hour and four-hour reporting categories and the fact that the clock starts after discovery. The reasoning also helped expose uncertainty around what counts as an adverse impact and when discovery actually happens. One issue I found was that it discussed the older 2010 version of RG 5.71, while the current revision is Rev. 1 from 2023, so the source version still needed manual verification.
+Claude did not force the answer into RG 5.71 or 10 CFR 73.54 just because the prompt named those documents. It identified 10 CFR 73.77 as the actual reporting rule and correctly focused on the difference between the one-hour and four-hour reporting categories and the fact that the clock starts after discovery. The reasoning also helped expose uncertainty around what counts as an adverse impact and when discovery actually happens. One issue I found was that it discussed the older 2010 version of RG 5.71, while the current revision is Rev. 1 from 2023, so the source version still needed manual verification. I later confirmed this directly: RG 5.71 Revision 1 was issued February 2023 under ADAMS accession number ML22258A204 and published at 88 FR 9117. In a later session Claude reversed itself and reported that the Rev. 1 accession number could not be verified and might be fabricated, and it downgraded three of my map rows on that basis. That was wrong. My original catch was correct and the tool's correction to it was not, which is the more useful result of this test than the reporting question itself. The revision also matters substantively. RG 5.71 Rev. 1 references 10 CFR 73.77 directly in Section C.3.3.2.6, which Revision 0 could not do because 73.77 was published five years after it. Revision 1 also contains Section C.4.1, the only place in the guide that names SIEM by name, which never surfaced while the analysis was running against Revision 0.
+
+I also found the same wrong citation in my own sequencing plan. The W7 RMS justification cited 10 CFR 73.71 for a notification decision after a cyberattack, when 73.71 and Appendix G cover physical security events and 73.77 is the cyber rule. My reasoning chain test had the right answer and my sequencing plan contradicted it.
 
 ### Tool Evaluation — Vision Model
 Claude correctly identified the 11 systems, the Purdue levels, the separation boundary, and the main OT-SIEM connections. It correctly identified RMS to OT-SIEM, PSI to OT-SIEM, PPC to OT-SIEM, and OT-SIEM to ICT-SIEM. It also correctly noticed the one-way export and the RPS data diode. The main error was tracing the Access Interlocks line as PPC to DCS when the diagram shows it coming from PSI toward DCS. It also inferred some protocols that were not written on the image, so those should be treated as inference rather than fact.
+
+The more useful outcome of this test was indirect. Reading the diagram carefully showed that OT-SIEM has four connections in the course architecture, three inbound feeds and one outbound export, and that my attack surface maps had described a much larger interface set drawn from NIST SP 800-82r3 Appendix E instead. The vision test was meant to evaluate the tool and ended up finding a gap in my own artifact.
+
+### Week 1 Correction Pass
+I ran a full pre-submission review across every Week 1 file. It found ten confirmed errors. Three were internal contradictions between my own files: the IT layer map put OT-SIEM at Purdue Level 4 when three other files and the diagram put it at Level 3, the sequencing plan cited the wrong notification rule, and my system-selection.md was missing two required sections, the Purdue Zone and Safety Classification statement and the nine-workshop fit analysis. Four were citation problems from working against the superseded revision of RG 5.71. One was a false finding inside my own verification artifact, which had recorded a real NRC accession number as unverifiable. The rest were overclaims where a source said something weaker than my map said it did.
+
+The lesson I take from this is that a verification artifact needs verifying too. The file I wrote specifically to catch hallucinations contained one, and it took a second pass against the primary document to find it. Checking the revision number of a regulation before citing sections from it would have prevented most of the corrections in this pass.
 
 ### Model Selection Guide
 Claude Opus 5: I would use Opus for difficult regulatory questions, deeper reasoning, and work where I need to compare sources carefully.
