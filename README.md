@@ -22,15 +22,14 @@ Be specific — name systems, frameworks, and techniques.
 | Workshop | System | Artifact | Theme |
 |---|---|---|---|
 | W1 | <!-- system --> | [IT Layer](workshops/week-01/attack-surface-map-it.md) · [OT Layer](workshops/week-01/attack-surface-map-ot.md) · [Physical Layer](workshops/week-01/attack-surface-map-physical.md) · [Verification](workshops/week-01/attack-surface-verification.md) | Foundations |
-| W2 | <!-- system --> | [Threat Profile](workshops/week-02/threat-profile.md) | Adversary Analysis |
-| W3 | <!-- system --> | [Protocol Security Analysis](workshops/week-03/protocol-security-analysis.md) | Technical Core I |
-| W4 | <!-- system --> | [ICS Security Analysis](workshops/week-04/ics-security-analysis.md) | Technical Core II |
-| W5 | <!-- system --> | [Regulatory Compliance Map](workshops/week-05/regulatory-compliance-map.md) | Nuclear Context |
-| W6 | <!-- system --> | [Monitoring Strategy](workshops/week-06/monitoring-strategy.md) | Defense & Detection |
-| W7 | <!-- system --> | [Incident Response Plan](workshops/week-07/incident-response-plan.md) | Incident Response |
-| W8 | <!-- system --> | [Advanced Threat Analysis](workshops/week-08/advanced-threat-analysis.md) | Advanced & Emerging |
-| W9 | <!-- system --> | [Portfolio Synthesis Note](workshops/week-09/portfolio-synthesis-note.md) | Capstone |
-
+| W2 | <!-- system --> | [Adversary Profile](workshops/week-02/adversary-profile.json) · [Threat Cards](workshops/week-02/threat-cards/) | Adversary Analysis |
+| W3 | <!-- system --> | [Protocol Analysis](workshops/week-03/protocol-analysis.md) | Technical Core I |
+| W4 | <!-- system --> | [RBAC Policy](workshops/week-04/rbac-policy.md) · [Purdue Annotated Description](workshops/week-04/purdue-annotated-description.md) | Technical Core II |
+| W5 | <!-- system --> | [Three-Framework Analysis](workshops/week-05/three-framework-analysis.json) · [Coordinator Narrative](workshops/week-05/coordinator-narrative.md) | Nuclear Context |
+| W6 | <!-- system --> | [Monitoring Strategy](workshops/week-06/monitoring-strategy.md) · [Supply Chain Assessment](workshops/week-06/supply-chain-assessment.md) | Defense & Detection |
+| W7 | <!-- system --> | [Zimmerman Nuclear Application](workshops/week-07/zimmerman-nuclear-application.md) | Incident Response |
+| W8 | <!-- system --> | [Side-Channel Brief](workshops/week-08/side-channel-brief.md) | Advanced & Emerging |
+| W9 | <!-- system --> | [AI Nuclear Risk Assessment](workshops/week-09/ai-nuclear-risk-assessment.md) | Capstone |
 ---
 
 ## AI Tool Evaluation
