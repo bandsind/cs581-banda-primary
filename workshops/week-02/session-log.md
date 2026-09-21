@@ -54,4 +54,29 @@ What did you do next?
 - Reading: 
 - AI sessions: 
 - Writing and editing: 
-- Total: 
+- Total:
+
+---
+
+## Reflection — The Card Exercise
+
+<!--
+Required for W2. A few paragraphs at the end of the log.
+
+You just asked a generative tool to produce confident, attractive artifacts about actors whose
+attribution is contested, and in some cases disputed by the people accused.
+
+Ground this in Anderson's Psychology and Usability chapter: 3rd ed. Ch. 3, 2nd ed. Ch. 2.
+The chapter is about cognitive exploitation, authority compliance,
+and why people believe things that are presented well. Your cards are a specimen of exactly that:
+a polished card with a stat line and a MITRE ID reads as more authoritative than the same claim in
+a sentence, even when the evidence behind it has not changed.
+
+Address at least:
+- What did the card format add that the underlying source did not support?
+- Which concepts from that chapter explain why a well-made card persuades past its evidence?
+- What would you want a reader of your cards to know that the cards themselves do not say?
+
+Module 9 returns to this question about AI in nuclear operations. Write it honestly rather than tidily.
+-->
+
