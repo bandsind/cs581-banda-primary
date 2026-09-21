@@ -1,35 +1,107 @@
 [
   {
-    "_comment": "Five actors, NOT the one in adversary-profile.json. Delete _comment before committing. Must parse as valid JSON.",
-    "actor": "...",
-    "aka": ["..."],
-    "actor_type": "nation-state | criminal | hacktivist | insider | accidental",
-    "assessed_affiliation": "OPTIONAL. Use only when a group's public presentation and its assessed attribution differ. Delete this key otherwise.",
-    "sector_targeting": ["..."],
+    "actor": "Sandworm Team",
+    "aka": [
+      "ELECTRUM",
+      "Telebots",
+      "IRON VIKING",
+      "BlackEnergy (Group)",
+      "Quedagh",
+      "Voodoo Bear",
+      "IRIDIUM",
+      "Seashell Blizzard",
+      "FROZENBARENTS",
+      "APT44"
+    ],
+    "actor_type": "nation-state",
+    "assessed_affiliation": "Attributed to Russia's General Staff Main Intelligence Directorate (GRU) Main Center for Special Technologies (GTsST), military unit 74455, including by a U.S. federal indictment of six GRU Unit 74455 officers unsealed in October 2020. This is Russian military intelligence, a separate service from the Federal Security Service (FSB). This actor is not FSB Center 16 and should not be merged with it.",
+    "sector_targeting": [
+      "Energy: electric power transmission and distribution in Ukraine (2015, 2016, and 2022 attacks)",
+      "Government organizations, including Ukrainian government bodies and attacks against the country of Georgia in 2018 and 2019",
+      "International organizations and events, including the 2018 Winter Olympics and the Organisation for the Prohibition of Chemical Weapons",
+      "Cross-sector global impact from the 2017 NotPetya attack"
+    ],
     "signature_ttp": {
-      "technique": "...",
-      "mitre_ics_id": "TNNNN or TNNNN.NNN, from the ATT&CK for ICS matrix"
+      "technique": "Unauthorized Message: Command Message. Industroyer sends unauthorized commands to remote terminal units to change the state of grid equipment, using the native industrial protocols IEC 61850, IEC 60870-5-104, and OPC DA to operate circuit breakers and switches.",
+      "mitre_ics_id": "T1692.001"
     },
-    "first_observed": "...",
-    "confidence": "documented | assessed | theoretical",
-    "provenance": "named public source",
-    "what_this_card_cannot_tell_you": "..."
+    "first_observed": "Active since at least 2009 (MITRE ATT&CK G0034). First documented ICS impact in the 2015 Ukraine Electric Power Attack (MITRE campaign C0028).",
+    "confidence": "documented",
+    "provenance": "MITRE ATT&CK for ICS: Group G0034 Sandworm Team (attribution, aliases, ICS techniques); Software S0604 Industroyer (T1692.001 procedure and protocols); Campaigns C0028 2015 Ukraine Electric Power Attack, C0025 2016 Ukraine Electric Power Attack (December 2016), and C0034 2022 Ukraine Electric Power Attack (June to October 2022). U.S. indictment of six GRU Unit 74455 officers, October 2020, as cited on G0034.",
+    "what_this_card_cannot_tell_you": "The alias list merges vendor tracking names (ELECTRUM, APT44, Seashell Blizzard, and others) whose cluster boundaries do not match exactly, so not every operation filed under one name belongs to the same team. Two 2022 events are easy to conflate: MITRE campaign C0034 (June to October 2022) is documented as successfully disrupting power at a Ukrainian utility, while a separate April 2022 Industroyer2 deployment reported by vendors is not part of C0034 and should be treated as a distinct event. Every documented ICS impact is in Ukraine, against Ukrainian equipment and protocols, so transfer of this capability to U.S. grid or nuclear environments with different vendors and architectures is not established. No public source reviewed documents Sandworm ICS operations against a nuclear facility."
   },
   {
-    "_comment": "Use this shape ONLY where no ICS technique applies. Set mitre_ics_id to null, give the Enterprise ID, and explain in id_note why the ICS matrix has nothing for it.",
-    "actor": "...",
-    "aka": ["..."],
-    "actor_type": "criminal",
-    "sector_targeting": ["..."],
+    "actor": "CyberAv3ngers",
+    "aka": [
+      "Soldiers of Soloman"
+    ],
+    "actor_type": "hacktivist",
+    "assessed_affiliation": "Assessed by the U.S. government as affiliated with Iran's Islamic Revolutionary Guard Corps (IRGC). CISA and partners describe the activity as conducted by IRGC-affiliated cyber actors using the persona CyberAv3ngers, and MITRE ATT&CK describes the group as a suspected IRGC-affiliated APT. The actor presents publicly as a hacktivist persona; the state relationship is a government assessment, not a self-description.",
+    "sector_targeting": [
+      "Water and wastewater systems (primary U.S. targets)",
+      "Energy",
+      "Food and beverage manufacturing",
+      "Healthcare"
+    ],
     "signature_ttp": {
-      "technique": "...",
-      "mitre_ics_id": null,
-      "mitre_enterprise_id": "TNNNN",
-      "id_note": "why no ICS technique applies"
+      "technique": "Insecure Credentials: Default Credentials. The actors accessed internet-exposed Israeli-made Unitronics Vision Series PLCs, reachable by default on TCP port 20256, using default passwords, then defaced the device human-machine interface.",
+      "mitre_ics_id": "T1694.001"
     },
-    "first_observed": "...",
-    "confidence": "documented | assessed | theoretical",
-    "provenance": "named public source",
-    "what_this_card_cannot_tell_you": "..."
+    "first_observed": "Active since at least 2020, with disputed and false claims of critical infrastructure compromises in Israel (MITRE ATT&CK G1027). Compromises of Unitronics devices documented since at least 22 November 2023 (CISA AA23-335A).",
+    "confidence": "documented",
+    "provenance": "MITRE ATT&CK for ICS: Group G1027 CyberAv3ngers (version 1.0, last modified 31 July 2026) and Campaign C0031 Unitronics Defacement Campaign. CISA and partners joint cybersecurity advisory AA23-335A, IRGC-Affiliated Cyber Actors Exploit PLCs in Multiple Sectors, Including U.S. Water and Wastewater Systems Facilities, released 1 December 2023, updated 14 December 2023.",
+    "what_this_card_cannot_tell_you": "The documented impact is HMI defacement, loss of view, and a communications failure at a remote pumping station; no process manipulation is documented, and the record does not establish whether that reflects limited capability or deliberate restraint. The persona's own claims are unreliable: CISA reports that between 13 September and 30 October 2023 the CyberAv3ngers Telegram channel displayed both legitimate and false claims of attacks against Israel, so anything sourced only to the persona is unverified. CISA describes the actors as targeting Israeli-made Unitronics devices, which suggests device origin drove victim selection more than sector choice; the sector list therefore reflects where those PLCs are deployed. The IRGC relationship is a government assessment, and the sources cited do not establish the command relationship or which IRGC element directs the persona. No public source reviewed documents CyberAv3ngers activity against a nuclear facility."
+  },
+  {
+    "actor": "Maroochy Shire former SCADA contractor",
+    "aka": [],
+    "actor_type": "insider",
+    "sector_targeting": [
+      "Water and wastewater systems (municipal sewage pumping stations, Maroochy Shire, Queensland, Australia)"
+    ],
+    "signature_ttp": {
+      "technique": "Rogue Master. Using stolen engineering equipment, including a remote terminal unit, a two-way radio, and a laptop running the vendor's proprietary configuration software, the actor falsified network addresses to impersonate a legitimate master station and send false data and instructions to sewage pumping stations over the radio telemetry network.",
+      "mitre_ics_id": "T0848"
+    },
+    "first_observed": "February 2000 to April 2000 (MITRE ATT&CK C0020). Idaho National Laboratory CyOTE analysis places the start in late January 2000.",
+    "confidence": "documented",
+    "provenance": "MITRE ATT&CK for ICS, Campaign C0020 Maroochy Water Breach (dates, twelve ICS techniques, and the T0848 procedure). Idaho National Laboratory CyOTE Program, precursor analysis report on the insider attack on the Maroochy Shire sewerage system, INL/RPT-22-70376, 30 December 2022.",
+    "what_this_card_cannot_tell_you": "The actor was a former engineer employed by the firm that installed the SCADA system, not an employee of the council, and held no current authorized access at the time of the attack. Insider here means vendor-level knowledge of the system, not a current employee. CyOTE classifies the event as an insider attack, while MITRE refers only to an adversary. The public record does not separate how much the attack depended on insider knowledge versus the stolen vendor equipment and configuration software, since both were required. The event involved 2000-era proprietary radio telemetry, so its applicability to modern segmented or encrypted SCADA networks is not established. It has no direct nuclear connection; its relevance is to vendor and contractor access, credential and equipment recovery at separation, and unauthenticated wireless telemetry."
+  },
+  {
+    "actor": "Browns Ferry Unit 3 broadcast-storm incident",
+    "aka": [],
+    "actor_type": "accidental",
+    "sector_targeting": [
+      "Nuclear reactors, materials, and waste: commercial nuclear power (sector affected, not targeted; no adversary was involved)"
+    ],
+    "signature_ttp": {
+      "technique": "Non-malicious network traffic saturation. Excessive traffic on the plant's integrated computer system network, a broadcast storm, made both reactor recirculation pump variable frequency drive controllers and the dual-redundant condensate demineralizer PLC nonresponsive, and operators manually scrammed the reactor. No adversary was involved. The ID below records the matching failure mechanism, a device overwhelmed by traffic, and does not represent an adversary action.",
+      "mitre_ics_id": "T0814"
+    },
+    "first_observed": "19 August 2006, single event (NRC Information Notice 2007-15, issued 17 April 2007).",
+    "confidence": "documented",
+    "provenance": "U.S. Nuclear Regulatory Commission, Information Notice 2007-15, Effects of Ethernet-Based, Non-Safety Related Controls on the Safe and Continued Operation of Nuclear Power Stations, 17 April 2007 (ADAMS ML071010303).",
+    "what_this_card_cannot_tell_you": "MITRE ATT&CK models adversary behavior and has no category for accidental events. T0814 Denial of Service is used only because the traffic-flood mechanism matches; no MITRE or NRC source maps this event to ATT&CK, so the mapping is an inference made for this card. The causal chain is unresolved: the NRC states the licensee could not conclusively establish whether the PLC failure caused the VFD controllers to become nonresponsive, or whether excessive traffic originating from a different source caused both to fail, and the origin of that traffic is not identified. The affected devices were non-safety-related, and operators scrammed the reactor manually, so the event shows that non-safety digital controls on a shared network can force a reactor trip, not that any safety function was compromised. That an adversary could reproduce this failure deliberately is a reasonable inference but is not stated by the NRC."
+  },
+  {
+    "actor": "DarkSide",
+    "aka": [
+      "Darkside (spelling used in CISA AA21-131A)",
+      "2021 Colonial Pipeline ransomware incident (wording used in MITRE ATT&CK T0828)"
+    ],
+    "actor_type": "criminal",
+    "sector_targeting": [
+      "Energy: oil and natural gas pipeline transport (Colonial Pipeline)",
+      "Large, high-revenue organizations across sectors; the group publicly stated it preferred victims able to pay large ransoms and claimed to avoid hospitals, schools, nonprofits, and governments (CISA AA21-131A)"
+    ],
+    "signature_ttp": {
+      "technique": "Loss of Productivity and Revenue. Ransomware on the business network led Colonial Pipeline to proactively shut down its pipeline system, halting fuel transport. MITRE's T0828 page cites this incident, noting the pipeline was unable to transport approximately 2.5 million barrels of fuel per day to the East Coast. The consequence was operational, but the OT network itself was not shown to be compromised.",
+      "mitre_ics_id": "T0828"
+    },
+    "first_observed": "DarkSide actors targeting organizations since August 2020 (CISA AA21-131A). Colonial Pipeline shutdown began 7 May 2021, FBI confirmed DarkSide responsibility 10 May 2021, and the full pipeline system restarted 13 May 2021 (DOE CESER).",
+    "confidence": "documented",
+    "provenance": "CISA and FBI joint cybersecurity advisory AA21-131A, DarkSide Ransomware: Best Practices for Preventing Business Disruption from Ransomware Attacks, 11 May 2021. U.S. Department of Energy, Office of Cybersecurity, Energy Security, and Emergency Response (CESER), Colonial Pipeline Cyber Incident. MITRE ATT&CK for ICS, Technique T0828 Loss of Productivity and Revenue.",
+    "what_this_card_cannot_tell_you": "CISA stated that there was no indication that the entity's operational technology networks had been directly affected by the ransomware, and DOE describes the shutdown as proactive. The operational consequence came from a precautionary decision, not from ransomware reaching pipeline control systems, and the sources cited do not establish why the shutdown was judged necessary. MITRE's T0828 description covers impact arising tangentially from an IT-targeting attack against non-segregated environments; citing T0828 here does not establish that Colonial's IT and OT environments were non-segregated, which the cited sources do not document. DarkSide operated as ransomware-as-a-service, so the developer group and the affiliate who carried out the intrusion are different parties; the sources cited do not identify the affiliate or document the initial access vector. No government source in this set assesses state direction of DarkSide."
   }
 ]
