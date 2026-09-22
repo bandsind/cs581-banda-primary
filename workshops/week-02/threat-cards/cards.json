@@ -76,7 +76,7 @@
       "Nuclear reactors, materials, and waste: commercial nuclear power (sector affected, not targeted; no adversary was involved)"
     ],
     "signature_ttp": {
-      "technique": "Non-malicious network traffic saturation. Excessive traffic on the plant's integrated computer system network, a broadcast storm, made both reactor recirculation pump variable frequency drive controllers and the dual-redundant condensate demineralizer PLC nonresponsive, and operators manually scrammed the reactor. No adversary was involved. The ID below records the matching failure mechanism, a device overwhelmed by traffic, and does not represent an adversary action.",
+      "technique": "Denial of Service / traffic-saturation failure-mechanism analog. A broadcast storm produced excessive traffic on the plant's integrated computer system network, making reactor recirculation pump variable frequency drive controllers and the dual-redundant condensate demineralizer PLC nonresponsive, after which operators manually scrammed the reactor. No adversary was involved. T0814 is used only as the closest ATT&CK for ICS mechanism analog, not as a claim that an attacker performed this technique.",
       "mitre_ics_id": "T0814"
     },
     "first_observed": "19 August 2006, single event (NRC Information Notice 2007-15, issued 17 April 2007).",
@@ -87,8 +87,7 @@
   {
     "actor": "DarkSide",
     "aka": [
-      "Darkside (spelling used in CISA AA21-131A)",
-      "2021 Colonial Pipeline ransomware incident (wording used in MITRE ATT&CK T0828)"
+      "Darkside"
     ],
     "actor_type": "criminal",
     "sector_targeting": [

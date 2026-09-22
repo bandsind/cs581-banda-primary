@@ -3,13 +3,9 @@
     "PPC, Plant Process Computer / Historian",
     "PSI, Physical Security Integration"
   ],
-
   "w1_map_reference": "workshops/week-01/attack-surface-map-ot.md",
-
-  "pivot_path": "No path in that direction is shown in the CS 581 architecture. The two relevant interfaces are the PPC to OT-SIEM feed labeled Historian events and the PSI to OT-SIEM feed labeled Security events, and both arrows point into OT-SIEM. The diagram draws no return line to either system, so an actor holding OT-SIEM has no documented route onward to PPC or PSI. The realistic direction is the reverse: an actor holding PPC or PSI has a drawn path to influence what OT-SIEM sees, by falsifying the events it sends or by sending none. That matters because the diagram shows no direct DCS to OT-SIEM edge, so the Historian events feed is OT-SIEM's only window into control-layer activity and PPC is the single system whose compromise closes it. Two cautions on reading the absence of a return line as safety. First, the architecture marks genuinely enforced one-way paths explicitly, with a data diode symbol on RPS to DCS carrying status only and a one-way export label on OT-SIEM to ICT-SIEM across the separation boundary, and neither the PPC nor the PSI feed carries such a marking, so a reverse path is undrawn rather than foreclosed. Resolving it requires the site cybersecurity plan and the connectivity walkdown records described in RG 5.71 Rev. 1 Section C.3.1.4, which requires tracing every communication connection into and out of a CDA to each termination point. Second, the diagram does show a PSI to DCS line labeled Access interlocks, which is the one path from a Week 2 system pointing down toward the control layer, and it does not involve OT-SIEM at all. For this specific actor the pivot question is partly moot: the documented FSB tradecraft reaches both PPC and PSI through the enterprise network using stolen credentials and vendor relationships, not by traversing a monitoring platform.",
-
+  "pivot_path": "The CS 581 architecture shows PPC sending Historian events to OT-SIEM and PSI sending Security events to OT-SIEM, but it does not show a return path from OT-SIEM to either PPC or PSI. Therefore no W1-to-W2 pivot path can be established from the public course architecture. The reverse direction is represented as data flowing from PPC and PSI toward OT-SIEM, but the diagram does not prove whether those links are technically one-way. Public reporting on this FSB actor also does not establish direct access to a PPC historian or a PSI physical-access system. Resolving any reverse connectivity would require site-specific CDA connectivity and cybersecurity documentation that is not publicly available.",
   "actor": "Russian Federal Security Service (FSB), Center 16, also designated Military Unit 71330",
-
   "also_known_as": [
     "BERSERK BEAR",
     "Energetic Bear",
@@ -18,16 +14,11 @@
     "TeamSpy",
     "Havex",
     "Koala",
-    "TEMP.Isotope",
-    "Static Tundra"
+    "TEMP.Isotope"
   ],
-
-  "attributed_to": "Russian Federation, Federal Security Service (FSB). Formal U.S. government attribution by criminal indictment of three FSB officers, Pavel Aleksandrovich Akulov, Mikhail Mikhailovich Gavrilov, and Marat Valeryevich Tyukov, unsealed 2022-03-24. Note that alias sets do not map one to one: the FBI describes Dragonfly and Berserk Bear as separate but related activity clusters, and Cisco Talos assesses only at moderate confidence that Static Tundra is a sub-cluster of Energetic Bear.",
-
+  "attributed_to": "Russian Federation, Federal Security Service (FSB). Formal U.S. government attribution by criminal indictment of three FSB officers, Pavel Aleksandrovich Akulov, Mikhail Mikhailovich Gavrilov, and Marat Valeryevich Tyukov, unsealed 2022-03-24. Alias sets do not map one to one: the FBI describes Dragonfly and Berserk Bear as separate but related activity clusters, so aliases should not be treated as exact equivalents.",
   "confidence": "documented",
-
   "provenance": "CISA, FBI, and DOE, Tactics, Techniques, and Procedures of Indicted State-Sponsored Russian Cyber Actors Targeting the Energy Sector, Joint Cybersecurity Advisory AA22-083A, 2022-03-24, Executive Summary pp. 1 to 2 and Technical Details p. 3. Supporting: CISA AA22-110A, Russian State-Sponsored Cyber Operations, FSB subsection; FBI IC3 PSA250820, 2025-08-20. IMPORTANT SCOPING NOTE: AA22-083A covers two separate indicted entities. The FSB campaign is documented in Appendix A Tables 1, 2, and 3. Appendix A Table 4 documents TRITON and belongs to a TsNIIKhM actor, a Ministry of Defense research institute, not the FSB. No technique from Table 4 appears in this profile. Sandworm and GRU Unit 74455 ICS activity is likewise excluded.",
-
   "motivation": {
     "primary": "Intelligence collection and pre-positioning on energy sector networks rather than immediate disruption. Exfiltrated material was reconnaissance-grade: vendor information, reference documents, ICS architecture, and layout diagrams. CISA, FBI, and DOE stated they had no information indicating these actors intentionally disrupted any U.S. energy sector infrastructure. Characterizing this as pre-positioning is an analytic inference from the observed collection behavior, not a source claim.",
     "secondary": [
@@ -37,18 +28,15 @@
       "Maintaining long-dwell covert access, evidenced by dedicated cleanup accounts and systematic log clearing rather than smash-and-grab behavior"
     ]
   },
-
   "actor_type": "nation-state",
-
   "nuclear_targeting_evidence": "AA22-083A names nuclear facilities among the campaign's targets in its Executive Summary, p. 1, alongside oil refineries and energy companies. The unsealed indictment describes Akulov as conducting surveillance and reconnaissance supporting the targeting of the Wolf Creek Generating Station computer network, a U.S. commercial nuclear power plant, and describes Gavrilov as conducting computer intrusions into Wolf Creek networks. This is direct, government-asserted nuclear sector targeting by a named FSB unit, which distinguishes this actor from most ICS threat groups. The critical limit is depth: no public source establishes whether access reached business networks only or extended into any safety or control system, what data was obtained, or how long access persisted. Contemporary press reporting characterized it as business network intrusion, but that characterization cannot be verified against the underlying evidence.",
-
   "primary_ttps": [
     {
       "tactic": "Initial Access",
       "technique": "Supply Chain Compromise",
       "mitre_ics_id": "T0862",
-      "nuclear_relevance": "Havex was distributed through trojanized installers planted on compromised ICS vendor websites, so routine software updates from multiple ICS vendors carried the malware. Nuclear licensees run vendor-delivered software under configuration control, and RG 5.71 Rev. 1 requires that updates to an asset behind a data diode be implemented so the update does not contain known malware and its integrity is maintained during transport. This technique attacks that assumption at the source, before the boundary device ever sees the file. ID verified current in ATT&CK ICS v19.2 and matches the ID used in the advisory.",
-      "system_relevance": "",
+      "nuclear_relevance": "Havex was distributed through trojanized installers planted on compromised ICS vendor websites, so routine software updates from multiple ICS vendors carried the malware. Nuclear licensees run vendor-delivered software under configuration control, and RG 5.71 Rev. 1 describes an acceptable update approach for an asset behind a data diode in which the update does not contain known malware and its integrity is maintained during transport. This technique attacks that assumption at the source, before the boundary device ever sees the file. ID verified current in ATT&CK ICS v19.2 and matches the ID used in the advisory.",
+      "system_relevance": "No direct software-supply-chain interface is named on my W1 OT map. The closest mapped interface is \"Portable media and field technician laptop interface for sensor configuration,\" because compromised vendor software or firmware could enter the OT environment through a maintenance laptop or portable-media workflow. That connection is inferred; the W1 map does not establish that PPC, PSI, or OT-SIEM share a vendor update path.",
       "confidence": "documented"
     },
     {
@@ -56,7 +44,7 @@
       "technique": "Spearphishing Attachment",
       "mitre_ics_id": "T0865",
       "nuclear_relevance": "Havex arrived as a trojanized installer attached to email. In the 2016 to 2018 phase the actor sent PDF attachments containing shortened URLs leading to credential-harvesting pages, and Word documents used to capture credential hashes. Nuclear plant engineering and security staff hold the credentials that reach both process record systems and access control systems, so a single successful attachment converts directly into the credential material needed for the rest of this chain. ID verified current in ATT&CK ICS v19.2 and still a T0 identifier; it was not deprecated in favor of Enterprise T1566.001.",
-      "system_relevance": "",
+      "system_relevance": "No direct interface on my W1 OT map represents email or a user opening an attachment, so Spearphishing Attachment does not directly reach an OT-SIEM interface on that map. The credential material obtained through phishing could support a later access technique, but that later use is a separate step and should not be treated as direct OT-map reach.",
       "confidence": "documented"
     },
     {
@@ -64,7 +52,7 @@
       "technique": "Drive-by Compromise",
       "mitre_ics_id": "T0817",
       "nuclear_relevance": "The actor created watering holes on compromised third-party domains belonging to vendors, integrators, and suppliers to the energy sector, using altered JavaScript and PHP to harvest credentials from visiting energy sector personnel. Nuclear licensees depend on a defined vendor and supplier base for I&C and security systems, and staff visit those sites as a normal part of the job, so the supplier relationship is the delivery mechanism rather than an incidental one. ID verified current in ATT&CK ICS v19.2 and matches the advisory.",
-      "system_relevance": "",
+      "system_relevance": "No browser or watering-hole interface appears on my W1 OT map, so Drive-by Compromise has no direct OT-SIEM interface on that map. It is an upstream initial-access technique whose output, such as stolen credentials, could support later access to OT systems, but that subsequent access is not documented by this W1 interface map.",
       "confidence": "documented"
     },
     {
@@ -72,7 +60,7 @@
       "technique": "Forced Authentication (MITRE ATT&CK for Enterprise, not ICS. Enterprise ID used because no ICS technique covers coercing a credential hash out of a client. The ICS matrix has no forced authentication or credential coercion technique; T0859 Valid Accounts covers the use of credentials rather than their acquisition, and T1694 Insecure Credentials covers default and hardcoded credentials rather than coerced hashes. This is a real gap in the ICS matrix, not a mapping shortcut.)",
       "mitre_ics_id": "T1187",
       "nuclear_relevance": "Word attachments used legitimate Office functionality to retrieve a remote document over SMB on TCP 445 or 139, sending the user's credential hash to an actor-controlled server before any file was retrieved, and the advisory notes transfer of credentials could occur even if the file was never retrieved. Watering hole pages requested a file icon over SMB. LNK files were manipulated so that merely browsing a directory triggered an SMB authentication session passing the active user's credentials. This requires no exploit and no malware execution, which makes it effective against hardened, application-allowlisted nuclear workstations where code execution would be blocked.",
-      "system_relevance": "",
+      "system_relevance": "No user-endpoint authentication interface appears on my W1 OT map. Forced Authentication operates at a client workstation by causing it to send credential material to an attacker-controlled service, so it does not directly reach an OT-SIEM interface on this map. Any later use of the captured credential against an OT system would be a separate technique.",
       "confidence": "documented"
     },
     {
@@ -80,7 +68,7 @@
       "technique": "Valid Accounts",
       "mitre_ics_id": "T0859",
       "nuclear_relevance": "The actor used previously compromised energy sector credentials and compromised third-party infrastructure against VPN, RDP, and Outlook Web Access, specifically where multifactor authentication was not enabled, cracked harvested hashes with Hydra, SecretsDump, and CrackMapExec, created local administrator accounts on compromised third-party organizations, and created an account inside a victim Microsoft Exchange Server. Legitimate credentials produce authentication events that look correct, which is the hardest case for a nuclear monitoring program because there is no malicious artifact to detect. AA22-083A mapped this behavior to Enterprise T1078 only; the ICS T0859 mapping is mine, which is why this entry is marked inferred rather than documented. T0859 is verified current in ATT&CK ICS v19.2 and was not deprecated in favor of T1078.",
-      "system_relevance": "",
+      "system_relevance": "Valid Accounts could be used against the W1 \"OT-SIEM central correlation and management server at Level 3\" if a stolen account is actually authorized there. That is an inferred architecture mapping: the W1 map does not show the authentication mechanism for this server and does not establish that PPC, PSI, and OT-SIEM share accounts or credentials.",
       "confidence": "inferred"
     },
     {
@@ -88,7 +76,7 @@
       "technique": "Remote System Discovery",
       "mitre_ics_id": "T0846",
       "nuclear_relevance": "Havex used Windows networking (WNet) to discover every server reachable from the compromised machine, specifically including OPC servers. In the 2016 to 2018 phase the actor reached a victim domain controller with privileged credentials and ran batch scripts dc.bat and dit.bat to enumerate hosts, users, and environment information. In a plant where a historian bridges two security levels, enumeration from a single foothold maps across a level boundary that segmentation was meant to enforce. The technique has since gained sub-techniques .001 Port Scan, .002 Broadcast Discovery, and .003 Multicast Discovery that did not exist when the advisory was written; the described behavior is not specific enough to assign one, so the parent ID is used deliberately.",
-      "system_relevance": "",
+      "system_relevance": "Remote System Discovery does not target the monitoring interface itself; it targets reachable hosts on network segments that may be observed through the W1 \"Passive network taps / SPAN mirror ports on Level 1-2 control network switches.\" The tap would provide detection visibility into discovery traffic rather than being the object of the discovery. Reachability of PPC or PSI from the discovered segment is not established by the W1 map.",
       "confidence": "documented"
     },
     {
@@ -96,7 +84,7 @@
       "technique": "Remote System Information Discovery",
       "mitre_ics_id": "T0888",
       "nuclear_relevance": "Havex gathered detailed information about discovered servers including CLSID, server name, Program ID, OPC version, vendor information, running state, group count, and server bandwidth. This is product and version fingerprinting at a level that supports selecting a specific exploit or a specific vendor supply chain to attack later, and it is collected passively enough that it produces no process effect an operator would notice. ID verified current in ATT&CK ICS v19.2 and matches the advisory.",
-      "system_relevance": "",
+      "system_relevance": "Remote System Information Discovery targets reachable industrial servers, not the monitoring sensor. The closest W1 observation interface is the \"Protocol decode / deep packet inspection engine parsing Modbus, DNP3, and OPC-UA traffic,\" which could expose server-fingerprinting traffic to OT-SIEM. This is detection visibility, not evidence that the DPI engine itself is the target, and the W1 map does not establish that PSI is reachable from the same segment.",
       "confidence": "documented"
     },
     {
@@ -104,7 +92,7 @@
       "technique": "Point and Tag Identification",
       "mitre_ics_id": "T0861",
       "nuclear_relevance": "Havex enumerated OPC tags, specifically tag name, type, access, and ID. ATT&CK describes points as inputs, memory locations, outputs, or other process specific variables, and tags as the identifiers given to points for operator convenience. A tag inventory is the translation table between a plant's physical process and the data a historian stores, and it is the prerequisite for any later attack that needs to know which specific value to read or alter. Obtaining it requires only read access and produces no physical effect, which is why it fits an intelligence-collection actor rather than a disruptive one. ID verified current in ATT&CK ICS v19.2 and matches the advisory.",
-      "system_relevance": "",
+      "system_relevance": "Point and Tag Identification targets an OPC-facing process or historian service on PPC rather than the OT-SIEM feed itself. The W1 map confirms the \"PPC to OT-SIEM historian event feed\" as the architecture path through which PPC supplies process visibility to OT-SIEM. That feed is therefore a downstream dependency and observation path, not the tag-enumeration target. The actual DCS-to-PPC OPC-UA historian interface is outside the OT-SIEM attack-surface map.",
       "confidence": "documented"
     },
     {
@@ -112,7 +100,7 @@
       "technique": "Data from Information Repositories",
       "mitre_ics_id": "T0811",
       "nuclear_relevance": "The actor accessed workstations and servers on corporate networks containing data output from control systems within energy generation facilities, accessed files pertaining to ICS or SCADA systems, copied profile and configuration information for accessing ICS systems including VNC profiles, and exfiltrated vendor information, reference documents, ICS architecture, and layout diagrams. ATT&CK describes this technique as collecting sensitive data such as specifications, schematics, or diagrams of control system layouts, devices, and processes, and explicitly names reference databases in the process environment as well as corporate-network databases containing information about the ICS. That description covers a plant historian directly. AA22-083A mapped this behavior to Enterprise T1083 and T1005; the ICS T0811 mapping is mine, hence inferred.",
-      "system_relevance": "",
+      "system_relevance": "Data from Information Repositories is directly relevant to PPC because PPC serves the plant-process computer/historian role, and the W1 map confirms the \"PPC to OT-SIEM historian event feed\" as OT-SIEM's path to PPC-derived process information. Collection from PPC could expose operational records and context that also support OT-SIEM monitoring. The documented FSB behavior is collection of ICS-related information, not manipulation of the historian feed.",
       "confidence": "inferred"
     },
     {
@@ -120,11 +108,10 @@
       "technique": "Indicator Removal on Host",
       "mitre_ics_id": "T0872",
       "nuclear_relevance": "The actor created dedicated accounts purely to perform cleanup, then cleared the System, Security, Terminal Services, Remote Services, and Audit Windows event logs. Installed applications were removed along with the logs they produced, including a VPN client at a third-party facility deleted together with its logs. Screenshots, registry keys, batch scripts, output files, and introduced tools such as scr.exe were deleted, and Havex carried its own cleanup module. This is an attack on the plant's evidentiary record, and it bears directly on 10 CFR 73.54(h) records retention and on whether a licensee could reconstruct an event after the fact. It also interacts with 10 CFR 73.77, where every notification clock runs from discovery: successful log destruction delays discovery, and no reporting obligation exists until discovery occurs. AA22-083A mapped this to Enterprise T1070.001 and T1070.004; the ICS T0872 mapping is mine, hence inferred.",
-      "system_relevance": "",
+      "system_relevance": "Indicator Removal on Host is relevant to the architecture-confirmed \"PPC to OT-SIEM historian event feed\" and \"PSI to OT-SIEM security event feed.\" If source records on PPC or PSI are removed before the corresponding events are forwarded, OT-SIEM could receive incomplete historian or security-event information. The W1 \"Host-based log forwarding agent on Level 2 HMI and engineering workstations\" is a separate potential interface and does not by itself prove that PPC or PSI use the same forwarding mechanism. If events have already reached the \"OT-SIEM central correlation and management server,\" off-host copies may preserve evidence.",
       "confidence": "inferred"
     }
   ],
-
   "historical_precedent": [
     "Global Energy Sector Intrusion Campaign, 2011 to 2018. A multi-stage FSB campaign against U.S. and international energy sector organizations in which the actor gained remote access, deployed ICS-focused malware, and collected and exfiltrated enterprise and ICS-related data. Source: CISA AA22-083A, Executive Summary p. 1 and Technical Details p. 3.",
     "Havex deployment, 2013 to 2014. A remote access trojan delivered by spearphishing, watering hole redirects, and trojanized vendor software updates. Its C2 deployed payloads that used the OPC standard to enumerate connected control system devices and resources. The Havex payload could crash common OPC platforms, causing a denial-of-service condition on applications relying on OPC communications, which the advisory records under ICS technique T0814 Denial of Service. Source: CISA AA22-083A, Technical Details p. 3 and Appendix A Table 2, pp. 12 to 13.",
@@ -133,7 +120,6 @@
     "Network device compromise, ongoing through at least 2025. FSB Center 16 has compromised networking devices globally, particularly devices accepting legacy unencrypted protocols such as SMI and SNMP versions 1 and 2, and deployed custom implants to Cisco devices including the malware publicly identified as SYNful Knock in 2015. This is the most recent government-reported FSB Center 16 activity found, and it is intelligence collection against network infrastructure rather than ICS manipulation. Source: FBI IC3 PSA250820, 2025-08-20.",
     "NOT this actor, recorded to prevent misattribution: TRITON / HatMan and the 2017 Middle East refinery safety system compromise are attributed to a TsNIIKhM actor, not the FSB, despite appearing in the same advisory and the same day's DOJ action. Source: CISA AA22-083A, Executive Summary p. 2 and Appendix A Table 4, pp. 33 to 35."
   ],
-
   "detection_opportunities": [
     "Outbound SMB on TCP 445 or 139 to destinations outside the plant, which is the observable signature of the Forced Authentication technique. The advisory's own mitigation for T1187 is to filter ingress and egress traffic and perform protocol-based filtering. A monitoring platform that correlates an outbound SMB attempt with a recently opened document or a browsed directory has a high-fidelity detection here, because there is no legitimate reason for a plant workstation to authenticate to an external SMB endpoint.",
     "Near-simultaneous clearing of multiple Windows event logs. The actor cleared System, Security, Terminal Services, Remote Services, and Audit logs together. Clearing one log has occasional benign causes; clearing that specific set at once does not. This detection only works if logs are forwarded off the host before they are cleared, which makes the forwarding path itself the control that matters.",
@@ -146,7 +132,6 @@
     "Vendor software update integrity verification failures, or an update installed without a verified signature. Given that the documented initial access path runs through trojanized vendor updates, the verification step is the detection point, and a failure there deserves treatment as a security event rather than an IT inconvenience.",
     "Detection limits worth stating in the same breath: this actor's credential-based access produces authentication events that are individually valid, its collection is read-only and produces no process effect, and its cleanup phase specifically targets the logs a monitoring platform depends on. Detection that relies on host logs alone will be defeated by the documented evasion technique, so the forwarding path off the host is the load-bearing control."
   ],
-
   "gaps_in_public_knowledge": [
     "Two of three FSB-associated intrusion sets are unattributed by any government. CISA states that industry reporting identifies three intrusion sets associated with the FSB but that the U.S. and UK governments have formally attributed only one, BERSERK BEAR. The identity, capability, and sector focus of the other two cannot be established from open sources, so a profile built on BERSERK BEAR alone may understate FSB capability by an unknown margin. Source: CISA AA22-110A, FSB subsection.",
     "Depth of access at Wolf Creek is not established. No public source states whether access reached business networks only or extended into any safety or control system, what data was obtained, or how long access persisted. Contemporary press characterized it as business network intrusion, but that cannot be verified against the underlying evidence. Source: DOJ indictment unsealed 2022-03-24 and CISA AA22-083A Executive Summary p. 1; absence of further detail confirmed by review of both.",
