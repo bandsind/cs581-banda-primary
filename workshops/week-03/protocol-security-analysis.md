@@ -1,8 +1,9 @@
 # Protocol Security Analysis — [System Name]
 ## CS 581 Workshop 3 | [Your Name] | [Date]
 
-**System:** <!-- from your sequencing plan -->
-**Purdue Zone:**
+**System:** Digital Control System
+**Purdue Zone:** Level 2 - Supervisory (hub of plant cyber infrastructure)
+
 **Workshop theme:** Protocol Security & Access Control
 
 ---
