@@ -91,25 +91,12 @@ This is a difficult problem because there are not many rules written specificall
 ---
 
 ## Knowledge Gap Identified
-
-One paragraph. What did this talk reveal that you do not yet understand well enough? Name it specifically. Then describe how you would use an AI tool to close that gap: what you would ask, what you would verify it against, and how you would know when you understood it.
-
 There is an obvious irony in using an AI assistant to research an incident about an AI assistant exceeding its boundary. Say something about that if it is worth saying.
 
 ---
 
 ## Question for Charlie
-
-Two or three sentences.
-
-Our live session with Charlie Nickerson of INL is Wednesday Sep 23, 5:00 to 6:30 PM MT. Write the question you would put to a working practitioner about this incident, as you would actually ask it, and explain why the answer would matter for nuclear cybersecurity work.
-
-Bring it to the session.
-
-<!--
-A strong question would be:
-If an AI agent used by a nuclear vendor behaved like the agent in the Hugging Face incident and crossed its intended boundary, could that behavior be considered a reportable defect under 10 CFR Part 21, and who would be responsible for deciding whether it must be reported to the NRC?**
--->
+If an AI agent used by a nuclear vendor behaved like the agent in the Hugging Face incident and crossed its intended boundary, could that behavior be considered a reportable defect under 10 CFR Part 21, and who would be responsible for deciding whether it must be reported to the NRC?
 
 ---
 
