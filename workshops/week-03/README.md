@@ -10,19 +10,33 @@ are the plant from the course architecture diagram.
 | | |
 |---|---|
 | Host | `plant.sanctumsec.com` |
-| Account | `sindi` |
+| Role account | `edgc` |
 | Your hostname | `edgc.plant.sanctumsec.com` |
 | Port block | `5010`–`5019` |
 | HMI port | `5010` — served over HTTPS at your hostname |
 | Protocol services | `5011` onward — **bind to 127.0.0.1 only** |
 
-You get an account once your public key is committed. See `infra/README.md`.
+### This is a role account, not a personal one
 
-    ssh sindi@plant.sanctumsec.com
+You log in as **`edgc`**, the system, not as yourself. Anyone whose public key is in
+that account's `~/.ssh/authorized_keys` can operate this system. Right now that is only you.
+
+Two consequences worth holding onto, because W4 is about exactly this:
+
+- `authorized_keys` **is** an access control list. Granting access is adding a line;
+  revoking it is removing one. That is the whole mechanism.
+- A shared account costs attribution. The login record says `edgc`, not your name.
+  sshd does log the key fingerprint on every login, so who did what is recoverable, but only
+  if someone kept a map from fingerprints to people. Notice which half of that is a
+  technical control and which half is a filing decision.
+
+You get access once your public key is committed. See `infra/README.md`.
+
+    ssh edgc@plant.sanctumsec.com
 
 To see your own HMI from your laptop before TLS routing is confirmed, tunnel it:
 
-    ssh -N -L 5010:127.0.0.1:5010 sindi@plant.sanctumsec.com
+    ssh -N -L 5010:127.0.0.1:5010 edgc@plant.sanctumsec.com
 
 ## Your links
 
