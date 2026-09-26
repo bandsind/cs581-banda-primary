@@ -4,6 +4,14 @@
 AI Tool: <!-- Claude Code / Codex -->  
 Primary System: <!-- The system you chose in Week 1 -->
 
+> **Coursework notice.** This repository contains graduate coursework for CS 581,
+> a nuclear cybersecurity class at Boise State University. All of it is educational
+> and defensive. The systems referenced are a simulated teaching lab that imitates
+> industrial control systems on an isolated, course-operated host; nothing here
+> connects to, or describes, any real facility, plant, or control system. Security
+> exercises are performed only against my own simulated systems or, by mutual
+> agreement, a classmate's, within that isolated lab, as directed by the instructor.
+
 ---
 
 ## Portfolio Summary
